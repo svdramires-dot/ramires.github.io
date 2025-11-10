@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>БИО Ramires | SVD </title>
+<style>
+:root{--bg:#0b0f13;--card:#0f1720;--accent:#7c3aed;--muted:#9aa4b2}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+margin:0;
+font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+background:radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent),
+radial-gradient(800px 400px at 90% 90%, rgba(3,105,161,0.06), transparent),
+var(--bg);
+color:#e6eef6;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:32px;
+}
+.card{
+width:min(920px,96vw);
+background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+border:1px solid rgba(255,255,255,0.04);
+padding:48px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(2,6,23,0.6);
+text-align:center;
+}
+h1{
+margin:0 0 12px 0;
+font-size: clamp(28px, 6vw, 64px);
+letter-spacing:0.04em;
+font-weight:700;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:14px;
+}
+.tag{
+background:linear-gradient(90deg, var(--accent), #06b6d4);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+font-family: ui-rounded, system-ui;
+}
+.subtitle{color:var(--muted); margin-top:6px; font-size:14px}
+.hash{font-family:monospace; background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:8px}
+@media (max-width:480px){ .card{padding:28px} }
+</style>
+</head>
+<body>
+<main class="card">
+<h1><span class="hash">БИО</span> <span class="tag">| Ramires</span></h1>
+<p class="subtitle"><code>Имя: Рамирес, Возраст: 14 лет, Страна в которой родился: Украина, Разговариваю на: Русский, Украинский, Мое лс для вопросов: @nerukablood</code></p>
+</main>
+</body>
+</html>
