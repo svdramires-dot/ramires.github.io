@@ -1,60 +1,197 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>БИО Ramires | SVD </title>
-<style>
-:root{--bg:#0b0f13;--card:#0f1720;--accent:#7c3aed;--muted:#9aa4b2}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-margin:0;
-font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-background:radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent),
-radial-gradient(800px 400px at 90% 90%, rgba(3,105,161,0.06), transparent),
-var(--bg);
-color:#e6eef6;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:32px;
-}
-.card{
-width:min(920px,96vw);
-background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-border:1px solid rgba(255,255,255,0.04);
-padding:48px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(2,6,23,0.6);
-text-align:center;
-}
-h1{
-margin:0 0 12px 0;
-font-size: clamp(28px, 6vw, 64px);
-letter-spacing:0.04em;
-font-weight:700;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:14px;
-}
-.tag{
-background:linear-gradient(90deg, var(--accent), #06b6d4);
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
-font-family: ui-rounded, system-ui;
-}
-.subtitle{color:var(--muted); margin-top:6px; font-size:14px}
-.hash{font-family:monospace; background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:8px}
-@media (max-width:480px){ .card{padding:28px} }
-</style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ramires — Biography</title>
+    <style>
+        :root{
+            --bg-1: #070718;
+            --bg-2: #120632;
+            --card-bg: rgba(255,255,255,0.03);
+            --muted: rgba(255,255,255,0.65);
+            --accent-text: #e8f0ff;
+            --glass-border: rgba(255,255,255,0.06);
+            --btn-start: #1e90ff; /* blue */
+            --btn-end: #ff3b3b;   /* red */
+        }
+
+        html,body{
+            height:100%;
+            margin:0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: radial-gradient(1200px 600px at 10% 10%, #08102b 0%, transparent 15%),
+                                    radial-gradient(900px 500px at 90% 90%, #2b003f 0%, transparent 20%),
+                                    linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
+            color:var(--accent-text);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+
+        .wrapper{
+            min-height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:48px 20px;
+        }
+
+        .card{
+            width:100%;
+            max-width:720px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid var(--glass-border);
+            border-radius:14px;
+            padding:28px;
+            box-shadow: 0 8px 40px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+            backdrop-filter: blur(8px);
+        }
+
+        header.site-header{
+            display:flex;
+            align-items:center;
+            gap:16px;
+            margin-bottom:18px;
+        }
+
+        .avatar{
+            width:72px;
+            height:72px;
+            border-radius:12px;
+            background:linear-gradient(135deg,#0ea5e944, #8b5cf6 60%);
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+            color:#021226;
+            font-size:28px;
+            box-shadow: 0 6px 18px rgba(59,130,246,0.12);
+            flex-shrink:0;
+        }
+
+        h1{
+            margin:0;
+            font-size:20px;
+            letter-spacing:0.2px;
+        }
+
+        p.lead{
+            margin:6px 0 0 0;
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        .bio{
+            margin-top:18px;
+            line-height:1.6;
+            color:var(--accent-text);
+            font-size:15px;
+        }
+
+        .meta{
+            margin-top:14px;
+            display:flex;
+            gap:12px;
+            flex-wrap:wrap;
+            color:var(--muted);
+            font-size:14px;
+        }
+
+        .meta .pill{
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid rgba(255,255,255,0.03);
+            padding:8px 12px;
+            border-radius:999px;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+        }
+
+        .actions{
+            margin-top:20px;
+            display:flex;
+            gap:12px;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            padding:10px 16px;
+            border-radius:999px;
+            color:white;
+            text-decoration:none;
+            font-weight:600;
+            background:linear-gradient(90deg,var(--btn-start), var(--btn-end));
+            box-shadow: 0 8px 30px rgba(30,144,255,0.14);
+            border:none;
+            cursor:pointer;
+            transition:transform .15s ease, box-shadow .15s ease, opacity .12s ease;
+        }
+
+        .btn:active{ transform:translateY(1px) scale(.998); }
+        .btn:hover{ transform:translateY(-2px) scale(1.01); box-shadow: 0 12px 40px rgba(30,144,255,0.18); }
+
+        .btn .icon{
+            width:18px;
+            height:18px;
+            display:inline-block;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.25));
+        }
+
+        footer{
+            margin-top:18px;
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        @media (max-width:420px){
+            .card{ padding:18px; }
+            header.site-header{ gap:12px; }
+            .avatar{ width:56px; height:56px; font-size:22px; }
+        }
+    </style>
 </head>
 <body>
-<main class="card">
-<h1><span class="hash">БИО</span> <span class="tag">| Ramires</span></h1>
-<p class="subtitle"><code>Имя: Рамирес, Возраст: 14 лет, Страна в которой родился: Украина, Разговариваю на: Русский, Украинский, Мое лс для вопросов: @nerukablood</code></p>
-</main>
+    <div class="wrapper">
+        <main class="card" role="main" aria-labelledby="profile-heading">
+            <header class="site-header">
+                <div class="avatar" aria-hidden="true">R</div>
+                <div>
+                    <h1 id="profile-heading">Ramires — Biography</h1>
+                    <p class="lead">Caste: OSINT</p>
+                </div>
+            </header>
+
+            <section class="bio" aria-label="Biography">
+                <p><strong>Name:</strong> Ramires</p>
+                <p><strong>Age:</strong> 14</p>
+                <p><strong>Country:</strong> Ukraine</p>
+                <p><strong>Languages:</strong> Russian, Ukrainian</p>
+                <p><strong>Note:</strong> I can provide protection, but only for special people.</p>
+                <p><strong>Note:</strong> Playing on: CS 2, CS:GO, DDNet, CoD</p>
+            </section>
+
+            <div class="meta" aria-hidden="false">
+                <div class="pill">Any questions? Click the button below.</div>
+            </div>
+
+            <div class="actions">
+                <a class="btn" href="https://t.me/nerukablood" target="_blank" rel="noopener noreferrer" aria-label="Contact Ramires on Telegram">
+                    <!-- simple paper plane SVG -->
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill="white" d="M2 21l20-9L2 3v7l14 2-14 2z"/>
+                    </svg>
+                    Contact on Telegram
+                </a>
+            </div>
+
+            <footer>
+                <small>Profile translated to English.</small>
+            </footer>
+        </main>
+    </div>
 </body>
-</html>
+</html></svg></div>
