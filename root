@@ -1,0 +1,3 @@
+git add CNAME
+git commit -m "Добавлен CNAME для домена"
+git push origin main
